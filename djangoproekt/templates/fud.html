@@ -1,0 +1,29 @@
+{% extends "menu.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Фудкорт</title>
+</head>
+<body>
+{%block menu%}
+{{block.super}}
+{%endblock%}
+
+{%block content%}
+                <h1 class="text-white fw-bold text-center" style="font-size: 70px">{{title_page.0}}</h1>
+    <img src="{{fod.o.foto.url}}" alt="кадр 2"
+    class="img-fluid border border-dark rounded-4">
+    <h3>{{fud.0.title}}</h3>
+    <h5>{{fud.0.description}}</h5>
+    <h5>{{fud.0.quantity}}</h5>
+    <h5>{{fud.0.price}}</h5>
+
+
+{%endblock%}
+
+{%block conclusion%}
+{{block.super}}
+{%endblock%}
+
+</body>
+</html>
