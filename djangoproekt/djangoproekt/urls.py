@@ -18,11 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from kinoteatr.views import registration_view
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('kinoteatr/', include('kinoteatr.urls')),
+    path('', include('kinoteatr.urls')),
+    path('user/', include('django.contrib.auth.urls')),
+    path('user/registration/', registration_view, name='registration')
 ]
 
 if settings.DEBUG:

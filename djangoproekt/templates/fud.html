@@ -10,15 +10,71 @@
 {%endblock%}
 
 {%block content%}
-                <h1 class="text-white fw-bold text-center" style="font-size: 70px">{{title_page.0}}</h1>
-    <img src="{{fod.o.foto.url}}" alt="кадр 2"
-    class="img-fluid border border-dark rounded-4">
-    <h3>{{fud.0.title}}</h3>
-    <h5>{{fud.0.description}}</h5>
-    <h5>{{fud.0.quantity}}</h5>
-    <h5>{{fud.0.price}}</h5>
+<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+            <h1 class="text-white fw-bold text-center" style="font-size: 70px">"{{title_page_fud.0}}"</h1>
+                <div class="d-block mx-auto border border-5 border-primary rounded-4" style="width: 1500px; height:500px">
+                    <div class="card-group">
+                        {% for i in a_treat %}
+                            <div class="card border-primary" style="height:490px">
+                                <div><img src="{{i.foto.url}}" alt="foto" class="card-img"></div>
+                                    <div class="card-img-overlay text-left align-content-end text-primary fw-bold">
 
+                                        <h4>{{i.title}}</h4>
+                                        <p>СОСТАВ: {{i.description}}</p>
+                                        <p>КОЛИЧЕСТВО: {{i.quantity}}грамм</p>
+                                        <p>ЦЕНА: {{i.price}}руб</p>
 
+                                    </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="10000">
+            <h1 class="text-white fw-bold text-center" style="font-size: 70px">"{{title_page_fud.1}}"</h1>
+                <div class="d-block mx-auto border border-5 border-primary rounded-4" style="width: 1500px; height:500px">
+                    <div class="card-group">
+                        {% for i in pizza %}
+                            <div class="card border-primary" style="height:490px">
+                                <div><img src="{{i.foto.url}}" alt="foto" class="card-img"></div>
+                                    <div class="card-img-overlay text-left align-content-end text-primary fw-bold">
+
+                                        <h4>{{i.title}}</h4>
+                                        <p>СОСТАВ: {{i.description}}</p>
+                                        <p>КОЛИЧЕСТВО: {{i.quantity}}</p>
+                                        <p>ЦЕНА: {{i.price}}руб</p>
+
+                                    </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="10000">
+            <h1 class="text-white fw-bold text-center" style="font-size: 70px">"{{title_page_fud.2}}"</h1>
+                <div class="d-block mx-auto border border-5 border-primary rounded-4" style="width: 1500px; height:500px">
+                    <div class="card-group">
+                        {% for i in drinks %}
+                            <div class="card border-primary" style="height:490px">
+                                <div><img src="{{i.foto.url}}" alt="foto" class="card-img"></div>
+                                    <div class="card-img-overlay text-left align-content-end text-primary fw-bold">
+
+                                        <h4>{{i.title}}</h4>
+                                        <p>СОСТАВ: {{i.description}}</p>
+                                        <p>КОЛИЧЕСТВО: {{i.quantity}}мл</p>
+                                        <p>ЦЕНА: {{i.price}}руб</p>
+
+                                    </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
 {%endblock%}
 
 {%block conclusion%}
