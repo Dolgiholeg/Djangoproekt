@@ -1,0 +1,45 @@
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel = "stylesheet" type="text/css" href="{%static 'style.css'%}">
+</head>
+<body>
+
+<form action="{% url 'login' %}" method="post" novalidate>
+    {% csrf_token %}
+            <div class="cont_form" >
+                {% if form.errors %}
+                <span style="color: red; font-family: Arial;font-size: 20px; font-weight: bold;">Неверное имя пользователя или пароль</span>
+                {% endif %}
+                <div >
+                    <p>{{ form.username.label }}</p>
+                     <div class="form-row">
+                    <input type="text" name="username" id="your-username" class="inp_reg" placeholder="логин" required>
+                     </div>
+                    {% for error in form.username.errors %}
+                    <span style="color: red; font-family: Arial;font-size: 20px; font-weight: bold;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    <p>{{ form.password.label }}</p>
+                    <div class="form-row">
+                    <input type="text" name="password" id="your-password" class="inp_reg" placeholder="пароль" required>
+                    </div>
+                    {% for error in form.password.errors %}
+                    <span style="color: red; font-family: Arial;font-size: 20px; font-weight: bold;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="buttons">
+                    <input class="bot" type="submit" value="ВХОД">
+                    <button class="bot" type="button" onclick="location.href='{% url 'registration' %}';">РЕГИСТРАЦИЯ</button>
+                    <button class="bot" type="button" onclick="location.href='{% url 'start' %}';">НАЗАД</button>
+                </div>
+            </div>
+
+    </form>
+
+</body>
+</html>
+

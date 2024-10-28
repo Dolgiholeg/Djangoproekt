@@ -1,0 +1,65 @@
+{% extends "menu.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сегодня на экране</title>
+</head>
+<body>
+{%block menu%}
+{{block.super}}
+{%endblock%}
+
+{%block content%}
+<h1 class="text-white fw-bold text-center" style="font-size: 70px">"{{film.0.title}}"</h1>
+<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <div><img src="{{foto_film.0.foto.url}}" class="d-block mx-auto border border-5 border-primary rounded-4" alt="foto"
+                      style="width: 1200px; height:600px"></div>
+                </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                    <div><img src="{{foto_film.1.foto.url}}" class="d-block mx-auto border border-5 border-primary rounded-4" alt="foto"
+                      style="width: 1200px; height:600px"></div>
+                </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                    <div><img src="{{foto_film.2.foto.url}}" class="d-block mx-auto border border-5 border-primary rounded-4" alt="foto"
+                      style="width: 1200px; height:600px"></div>
+                </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                    <div><img src="{{foto_film.3.foto.url}}" class="d-block mx-auto border border-5 border-primary rounded-4" alt="foto"
+                      style="width: 1200px; height:600px"></div>
+                </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                <div><img src="{{foto_film.4.foto.url}}" class="d-block mx-auto border border-5 border-primary rounded-4" alt="foto"
+                      style="width: 1200px; height:600px"></div>
+                </div>
+    </div>
+</div>
+                <div class="d-block mx-auto bg-white text-left text-primary border border-5 border-primary rounded-4 p-4" style="width: 1200px; height:400px">
+                    {% for i in film %}
+                    <h4>СЮЖЕТ: {{i.description}}</h4>
+                    <h4>ГОД ВЫХОДА: {{i.year}}</h4>
+                    <h4>СТРАНА: {{i.country}}</h4>
+                    <h4>ВОЗРАСТНОЕ ОГРАНИЧЕНИЕ: {{i.age}}</h4>
+                    {% endfor %}
+                </div>
+{%endblock%}
+
+{%block conclusion%}
+<div class="card-group mx-auto border border-5 border-primary rounded-4" style="width: 1300px;" >
+    {% for i in acter %}
+    <div class="card border-primary" style="width: 290px;" >
+            <div class="card-header text-center text-primary fw-bold">
+            <h4>{{i.role}}</h4>
+            </div>
+            <div><img src="{{i.foto.url}}" alt="foto" class="card-img w-100" style="height:400px" ></div>
+            <div class="card-footer text-center text-primary fw-bold">
+            <h4>{{i.name}}</h4>
+            </div>
+    </div>
+    {% endfor %}
+</div>
+{%endblock%}
+
+</body>
+</html>

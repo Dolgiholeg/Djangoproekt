@@ -49,7 +49,6 @@ def film2_view(request):
 
 
 def registration_view(request):
-
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -65,7 +64,6 @@ def registration_view(request):
 
 
 def comment_view(request):
-
     comments = Comment.objects.all()
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -78,7 +76,7 @@ def comment_view(request):
         form = CommentForm()
     comments = Comment.objects.all()
 
-    return render(request, 'comments.html', {'form': form, 'comments': comments})
+    return render(request, 'comments.html', {'form': form, 'comments': comments })
 
 
 

@@ -1,0 +1,37 @@
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Комментарии</title>
+    <link rel = "stylesheet" type="text/css" href="{%static 'style.css'%}">
+</head>
+<body>
+
+<form method="POST" action="{% url 'comments' %}" novalidate>
+    {% csrf_token %}
+    <div class="cont_form">
+        <h4>Оставьте отзыв о нашей работе</h4>
+
+                <div><p>{{ form.text.label }}</p>
+                    <div class="form-row">
+                    <input type="text" name="text" id="your-username" class="inp_txt" placeholder="ваш отзыв" required>
+                    </div>
+                </div>
+                    {% for error in form.text.errors %}
+                    <span style="color: red; font-family: Arial;font-size: 20px; font-weight: bold;">{{ error }}</span>
+                    {% endfor %}
+        <div class="buttons">
+        <input class="bot" type="submit" value="ОТПРАВИТЬ">
+        <button class="bot" type="button" onclick="location.href='{% url 'main' %}';">НАЗАД</button>
+        </div>
+    </div>
+</form>
+<div class="com_all">
+{% for i in comments %}
+    <div class="com">
+         <p>{{ i.text }} - {{ i.user }} - {{ i.created_at }}</p>
+    </div>
+{% endfor %}
+</div>
+</body>
+</html>
