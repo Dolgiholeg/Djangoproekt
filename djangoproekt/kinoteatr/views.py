@@ -1,6 +1,4 @@
-from django.http import HttpResponse
 from .forms import *
-from django.views.generic import TemplateView
 from .models import *
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login

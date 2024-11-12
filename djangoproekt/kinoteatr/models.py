@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User, AbstractUser
+
 
 class A_treat(models.Model):
     title = models.CharField(max_length=20, verbose_name='Название')
