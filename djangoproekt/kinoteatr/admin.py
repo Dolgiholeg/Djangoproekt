@@ -22,4 +22,3 @@ class ActerInline(admin.TabularInline):
 @admin.register(Film)
 class FilmAdmin(admin.ModelAdmin):
     inlines = [Foto_filmInline, ActerInline,]
-

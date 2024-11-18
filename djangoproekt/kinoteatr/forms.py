@@ -5,15 +5,12 @@ from .models import *
 
 
 class SignUpForm(UserCreationForm):
-
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2', 'first_name', 'last_name',)
 
 
 class CommentForm(forms.ModelForm):
-
     class Meta:
         model = Comment
         fields = ('text',)
-
